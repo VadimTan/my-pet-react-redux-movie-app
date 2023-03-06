@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filteredMovies } from '../counter/SearcherSlice';
 import { useFetchMovies } from '../hooks/useFetchMovies';
-import Slider from './slider';
 import { Modal } from './modal';
 
 const Main = () => {
@@ -17,53 +16,49 @@ const Main = () => {
 	};
 
 	return (
-		<>
-			<Slider />
-			<div className="container-main">
-				<div className="movies-menu">
-					<Modal
-						active={modalActive}
-						setActive={setModalActive}>
-						{selectedMovie && (
-							<>
-								<div className="modal-movie">
-									<img
-										className="modal-movie-image"
-										src={`https://image.tmdb.org/t/p/original${selectedMovie.backdrop_path}`}
-										alt=""
-									/>
-									<h3 className="modal-movie-h3">{selectedMovie.title}</h3>
-									<p className="modal-movie-release">
-										Release Date: {selectedMovie.release_date}
-									</p>
-									<p className="modal-movie-info">{selectedMovie.overview}</p>
-									<div className="modal-movie-average">
-										{selectedMovie.vote_average}
-									</div>
-									<button
-										onClick={() => setModalActive(false)}
-										className="modal-button-close">
-										Close
-									</button>
-								</div>
-							</>
-						)}
-					</Modal>
-					{movies &&
-						movies.map((movie) => (
-							<div key={movie.id}>
+		<div className="container-main">
+			<div className="movies-menu">
+				<Modal
+					active={modalActive}
+					setActive={setModalActive}>
+					{selectedMovie && (
+						<>
+							<div className="modal-movie">
 								<img
-									src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+									className="modal-movie-image"
+									src={`https://image.tmdb.org/t/p/original${selectedMovie.backdrop_path}`}
 									alt=""
-									onClick={() => handleMovieClick(movie)}
 								/>
-								<h3>{movie.title}</h3>
-								{/* <p>{movie.overview}</p> */}
+								<h3 className="modal-movie-h3">{selectedMovie.title}</h3>
+								<p className="modal-movie-release">
+									Release Date: {selectedMovie.release_date}
+								</p>
+								<p className="modal-movie-info">{selectedMovie.overview}</p>
+								<div className="modal-movie-average">
+									{selectedMovie.vote_average}
+								</div>
+								<button
+									onClick={() => setModalActive(false)}
+									className="modal-button-close">
+									Close
+								</button>
 							</div>
-						))}
-				</div>
+						</>
+					)}
+				</Modal>
+				{movies &&
+					movies.map((movie) => (
+						<div key={movie.id}>
+							<img
+								src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+								alt=""
+								onClick={() => handleMovieClick(movie)}
+							/>
+							<h3>{movie.title}</h3>
+						</div>
+					))}
 			</div>
-		</>
+		</div>
 	);
 };
 
