@@ -140,7 +140,8 @@ form {
 }
 
 .container-slider-movies {
-	margin-top: 10px;
+	margin-top: 5px;
+	margin-bottom: 75px;
 }
 
 .container-main {
@@ -320,4 +321,46 @@ button:hover {
 	color: rgba(253, 187, 45, 1);
 	padding-left: 5px;
 	text-decoration: underline;
+}
+
+.about-me-info {
+	background-color: #ffffff;
+	margin-top: 100px;
+	margin-left: 250px;
+	margin-right: 250px;
+}
+
+.text-about-me {
+	margin: 50px;
+	text-align: center;
+}
+
+.about-me-info h2 {
+	color: #2a3e52;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.about-me-info p {
+	color: #2a3e52;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	padding-bottom: 25px;
+	font-size: 18px;
+}
+
+.home-page {
+	display: flex;
+	background-color: #ffffff;
+	margin: 50px 200px;
+}
+
+.home-page h2 {
+	color: #2a3e52;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.home-page p {
+	margin: 50px 100px;
+	color: #2a3e52;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 18px;
 }

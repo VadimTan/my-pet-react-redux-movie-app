@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { selectSearch, searchByMovies } from '../counter/SearcherSlice';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
 	const dispatch = useDispatch();
@@ -18,26 +19,34 @@ const NavBar = () => {
 		<div className="main-div">
 			<div className="container">
 				<nav className="navigation-menu">
-					<button
-						className="nav-btn"
-						id="btn-home">
-						Home
-					</button>
-					<button
-						className="nav-btn"
-						id="btn-movies">
-						Movies
-					</button>
-					<button
-						className="nav-btn"
-						id="btn-about">
-						About
-					</button>
-					<button
-						className="nav-btn"
-						id="btn-new">
-						New
-					</button>
+					<Link to="/">
+						<button
+							className="nav-btn"
+							id="btn-home">
+							Home
+						</button>
+					</Link>
+					<Link to="/movies">
+						<button
+							className="nav-btn"
+							id="btn-movies">
+							Movies
+						</button>
+					</Link>
+					<Link to="/about">
+						<button
+							className="nav-btn"
+							id="btn-about">
+							About
+						</button>
+					</Link>
+					<Link to="/new-movies">
+						<button
+							className="nav-btn"
+							id="btn-new">
+							New
+						</button>
+					</Link>
 					<div className="d1">
 						<form>
 							<input

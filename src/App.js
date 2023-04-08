@@ -1,19 +1,26 @@
 import React from 'react';
-import NavBar from './features/components/navbar';
-import Footer from './features/components/footer';
-import Main from './features/components/main';
-import './App.css';
-import Slider from './features/components/slider';
+import { Route, Routes } from 'react-router-dom';
+import { MoviesPage } from './pages/MoviesPage';
+import { AboutPage } from './pages/AboutPage';
+import { HomePage } from './pages/HomePage';
 
-const App = () => {
+function App() {
 	return (
-		<div className="App">
-			<NavBar />
-			<Slider />
-			<Main />
-			<Footer />
-		</div>
+		<Routes>
+			<Route
+				path="/"
+				element={<HomePage />}
+			/>
+			<Route
+				path="/movies"
+				element={<MoviesPage />}
+			/>
+			<Route
+				path="/about"
+				element={<AboutPage />}
+			/>
+		</Routes>
 	);
-};
+}
 
 export default App;
