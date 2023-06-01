@@ -7,7 +7,7 @@ import '../App.css';
 
 export const HomePage = () => {
 	return (
-		<div className="App">
+		<>
 			<NavBar />
 			<div className="home-page">
 				<span>
@@ -30,6 +30,6 @@ export const HomePage = () => {
 			</div>
 			<Slider />
 			<Footer />
-		</div>
+		</>
 	);
 };

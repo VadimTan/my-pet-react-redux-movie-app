@@ -1,5 +1,7 @@
 .App {
 	text-align: center;
+	display: flex;
+	flex-direction: column;
 }
 
 .App-logo {
@@ -87,9 +89,11 @@
 	);
 	transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+
 .nav-btn:hover {
 	background: rgba(255, 255, 255, 0);
 }
+
 .nav-btn:hover:before {
 	bottom: 0%;
 	top: auto;
@@ -97,46 +101,103 @@
 }
 
 div {
-	padding: 15px 0 0 0;
 }
+
+#light {
+	background-color: #ffffff;
+}
+
+#dark {
+	background-color: url(../src/images/photo_2023-02-02_21-32-11.jpg);
+}
+
+#light label {
+	color: #1a191f;
+}
+
+#dark label {
+	color: #ffffff;
+}
+
+#light .switcher-light-dark-mode {
+	border-bottom: 1px solid #000000;
+}
+
+#dark .switcher-light-dark-mode {
+	border-bottom: 1px solid #ffffff;
+}
+
+#dark .d1 button {
+	background: #ffffff;
+	color: #000000;
+}
+
+#dark .d1 button:before {
+	content: '';
+	color: #000000;
+}
+
+#dark .d1 button:hover {
+	content: '';
+	background: #838383;
+}
+
+.switcher-light-dark-mode {
+	display: flex;
+	padding: 10px;
+	margin: 5px;
+}
+
+.switch {
+	padding-left: 5px;
+}
+
 form {
+	padding-left: 15px;
+	display: flex;
+	align-items: center;
 	position: relative;
 	width: 300px;
 	margin: 0 auto;
 }
+
 .d1 {
 	padding: 0px;
 	background: hidden;
+	margin-right: 15px;
 }
+
 .d1 input {
 	width: 75%;
 	margin-right: 40px;
 	height: 42px;
 	padding-left: 10px;
-	border: 2px solid #7ba7ab;
+	border: 1px solid #353535;
 	border-radius: 5px;
 	outline: none;
-	background: #f9f0da;
+	background: #ffffff;
 	color: #9e9c9c;
 }
 .d1 button {
 	position: absolute;
-	margin-top: 3px;
+	margin-top: 1.5px;
 	top: 0;
 	right: 0px;
 	width: 42px;
 	height: 42px;
 	border: none;
-	background: #ffef3a;
+	background: #000000;
+	color: #ffffff;
 	border-radius: 5px;
 	cursor: pointer;
 }
+
 .d1 button:before {
-	color: #f9f0da;
+	color: #000000;
 }
 
 .d1 button:hover {
-	background: #ffe29a;
+	background: #838383;
 }
 
 .container-slider-movies {
@@ -146,10 +207,34 @@ form {
 
 .container-main {
 	background-color: #ffffff;
-	margin: 30px 100px;
+	margin: 25px 75px;
+}
+
+#light .movies-menu {
+	padding: 15px;
+	margin: 15px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	background-color: #373737;
+}
+
+#light .movies-menu h3 {
+	color: #ffffff;
+	font-size: 17px;
+}
+
+#light .modal-movie-release {
+	color: rgb(230, 230, 230);
+}
+
+#light .modal-movie-info {
+	color: rgb(230, 230, 230);
 }
 
 .movies-menu {
+	margin: 15px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -159,11 +244,11 @@ form {
 .container-footer {
 	position: relative;
 	background-color: #1a191f;
-	left: 0;
-	bottom: 0;
 	width: 100%;
 	height: 80px;
-	z-index: 1;
+	/* right: 0;
+	left: 0;
+	bottom: 0; */
 }
 
 .container-slider-movies {
@@ -181,6 +266,7 @@ form {
 	justify-content: space-between;
 	width: 80%;
 	height: 100%;
+	box-shadow: 0px 0px 18px 0px rgba(35, 35, 35, 0.75);
 }
 
 img {
@@ -263,7 +349,12 @@ button:hover {
 	box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
 }
 
+.modal-movie-h3 {
+	color: rgb(230, 230, 230);
+}
+
 .modal-movie-info {
+	color: rgb(230, 230, 230);
 	margin: 0px 15px;
 }
 
@@ -281,24 +372,26 @@ button:hover {
 
 .modal-movie-average {
 	position: absolute;
-	top: 100px;
+	top: 80px;
 	left: 160px;
 	border-radius: 50%;
 	width: 40px;
-	height: 30px;
+	height: 20px;
 	justify-content: center;
 	align-items: center;
 	background-color: #1a191f;
-	color: #ffffff;
+	color: #ffef3a;
 	font-size: 12px;
 }
 
 .modal-movie-release {
 	font-size: 14px;
 	font-weight: bold;
+	color: rgb(230, 230, 230);
 }
 
 .footer {
+	padding-top: 30px;
 	display: flex;
 	justify-content: space-around;
 }
@@ -325,9 +418,11 @@ button:hover {
 
 .about-me-info {
 	background-color: #ffffff;
-	margin-top: 100px;
+	margin-top: 50px;
 	margin-left: 250px;
 	margin-right: 250px;
+	margin-bottom: 50px;
+	box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
 }
 
 .text-about-me {
@@ -351,6 +446,7 @@ button:hover {
 	display: flex;
 	background-color: #ffffff;
 	margin: 50px 200px;
+	box-shadow: 0px 0px 18px 0px rgba(35, 35, 35, 0.75);
 }
 
 .home-page h2 {

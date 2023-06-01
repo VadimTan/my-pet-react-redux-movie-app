@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { filteredMovies } from '../counter/SearcherSlice';
+import { useState } from 'react';
 import { useFetchMovies } from '../hooks/useFetchMovies';
 import { Modal } from './modal';
 
-const Main = ({ searchTerm }) => {
+export const NewMovies = () => {
 	const [modalActive, setModalActive] = useState(false);
 	const [selectedMovie, setSelectedMovie] = useState(null);
 	const { movies, refetch } = useFetchMovies();
@@ -14,10 +12,11 @@ const Main = ({ searchTerm }) => {
 		setModalActive(true); // show the modal
 	};
 
+	const updatedMovies = movies.slice(0, 8);
+
 	// const filteredMovieList = movies.filter((movie) => {
 	// 	return movie.title.toLowerCase().includes(searchTerm.toLowerCase());
 	// });
-
 	return (
 		<>
 			<div className="container-main">
@@ -50,8 +49,8 @@ const Main = ({ searchTerm }) => {
 							</>
 						)}
 					</Modal>
-					{movies &&
-						movies.map((movie) => (
+					{updatedMovies &&
+						updatedMovies.map((movie) => (
 							<div key={movie.id}>
 								<img
 									src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
@@ -66,11 +65,3 @@ const Main = ({ searchTerm }) => {
 		</>
 	);
 };
-
-export default Main;
-
-// https://image.tmdb.org/t/p/original${selectedMovie.backdrop_path}
-// selectedMovie.title
-// selectedMovie.release_date;
-// selectedMovie.overview;
-// selectedMovie.vote_average;

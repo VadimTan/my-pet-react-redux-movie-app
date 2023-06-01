@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { selectSearch, searchByMovies } from '../counter/SearcherSlice';
+import { searchByMovies } from '../counter/SearcherSlice';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
@@ -55,7 +55,11 @@ const NavBar = () => {
 								value={searchTerm}
 								onChange={handleChange}
 							/>
-							<button type="submit">Find</button>
+							<button
+								className="button-sumbit"
+								type="submit">
+								Find
+							</button>
 						</form>
 					</div>
 				</nav>

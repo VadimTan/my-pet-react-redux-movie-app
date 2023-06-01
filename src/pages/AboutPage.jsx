@@ -5,7 +5,7 @@ import '../App.css';
 
 export const AboutPage = () => {
 	return (
-		<div className="App">
+		<>
 			<NavBar />
 			<div className="about-me-info">
 				<span>
@@ -38,6 +38,6 @@ export const AboutPage = () => {
 				</span>
 			</div>
 			<Footer />
-		</div>
+		</>
 	);
 };

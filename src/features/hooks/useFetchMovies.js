@@ -6,7 +6,7 @@ export const useFetchMovies = () => {
 	const fetchMovies = useCallback(async () => {
 		try {
 			const response = await fetch(
-				'https://api.themoviedb.org/3/movie/popular?api_key=96d468c5aedd8e32b93e62e1dab78f97&language=en-US&page=1'
+				'https://api.themoviedb.org/3/movie/popular?api_key=e6399623a284305ea82a27c75a4c129a'
 			);
 			const data = await response.json();
 			setMovies(data.results);
