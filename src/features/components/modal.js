@@ -5,10 +5,10 @@ export const Modal = ({ active, setActive, children }) => {
 	return (
 		<div className="modal__overlay">
 			<div
-				className={'modal'}
+				className="modal"
 				onClick={() => setActive(false)}>
 				<div
-					className={'modal__content'}
+					className="modal__content"
 					onClick={(e) => e.stopPropagation()}>
 					{children}
 				</div>

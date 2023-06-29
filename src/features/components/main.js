@@ -1,26 +1,47 @@
 import React, { useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { filteredMovies } from '../counter/SearcherSlice';
 import { useFetchMovies } from '../hooks/useFetchMovies';
 import { Modal } from './modal';
+import Sort from './sort';
 
-const Main = ({ searchTerm }) => {
+const Main = (props) => {
+	const { movies, refetch } = useFetchMovies();
 	const [modalActive, setModalActive] = useState(false);
 	const [selectedMovie, setSelectedMovie] = useState(null);
-	const { movies, refetch } = useFetchMovies();
+	const [checkedPopularity, setCheckedPopularity] = useState(false);
+	const [checkedRating, setCheckedRating] = useState(false);
+	const array = [
+		{ name: 'популярности', sortProperty: checkedPopularity },
+		{
+			name: 'рейтингу',
+			sortProperty: checkedRating,
+		},
+	];
+
+	const sortedByRating = [...movies].sort(
+		(mov1, mov2) => mov2.vote_average - mov1.vote_average
+	);
 
 	const handleMovieClick = (movie) => {
 		setSelectedMovie(movie); // set the selected movie data in state
 		setModalActive(true); // show the modal
 	};
 
-	// const filteredMovieList = movies.filter((movie) => {
-	// 	return movie.title.toLowerCase().includes(searchTerm.toLowerCase());
-	// });
+	const sortByFame = () => {
+		setCheckedPopularity((prev) => !prev);
+	};
+
+	const sortByRate = () => {
+		setCheckedRating((prev) => !prev);
+	};
 
 	return (
 		<>
 			<div className="container-main">
+				<Sort
+					handler={sortByFame}
+					handlerSec={sortByRate}
+					array={array}
+				/>
 				<div className="movies-menu">
 					<Modal
 						active={modalActive}
@@ -50,17 +71,27 @@ const Main = ({ searchTerm }) => {
 							</>
 						)}
 					</Modal>
-					{movies &&
-						movies.map((movie) => (
-							<div key={movie.id}>
-								<img
-									src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-									alt=""
-									onClick={() => handleMovieClick(movie)}
-								/>
-								<h3>{movie.title}</h3>
-							</div>
-						))}
+					{checkedRating === false
+						? movies.map((movie) => (
+								<div key={movie.id}>
+									<img
+										src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+										alt=""
+										onClick={() => handleMovieClick(movie)}
+									/>
+									<h3>{movie.title}</h3>
+								</div>
+						  ))
+						: sortedByRating.map((movie) => (
+								<div key={movie.id}>
+									<img
+										src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+										alt=""
+										onClick={() => handleMovieClick(movie)}
+									/>
+									<h3>{movie.title}</h3>
+								</div>
+						  ))}
 				</div>
 			</div>
 		</>
@@ -69,8 +100,6 @@ const Main = ({ searchTerm }) => {
 
 export default Main;
 
-// https://image.tmdb.org/t/p/original${selectedMovie.backdrop_path}
-// selectedMovie.title
-// selectedMovie.release_date;
-// selectedMovie.overview;
-// selectedMovie.vote_average;
+// const filteredMovieList = movies.filter((movie) => {
+// 	return movie.title.toLowerCase().includes(searchTerm.toLowerCase());
+// });

@@ -206,13 +206,15 @@ form {
 }
 
 .container-main {
+	display: flex;
+	flex-direction: row;
 	background-color: #ffffff;
-	margin: 25px 75px;
+	margin: 25px 50px;
 }
 
 #light .movies-menu {
 	padding: 15px;
-	margin: 15px;
+	margin: 0 15px 0 0;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -301,6 +303,7 @@ button:hover {
 
 .movies-menu img {
 	cursor: pointer;
+	box-shadow: 0 2px 4px #5a5a5a;
 	height: 300px;
 	width: 300px;
 }
@@ -317,6 +320,8 @@ button:hover {
 .modal__overlay {
 	background-color: rgba(0, 0, 0, 0.5);
 	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	overflow: auto;
@@ -459,4 +464,39 @@ button:hover {
 	color: #2a3e52;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	font-size: 18px;
+}
+
+#dark .sort-movies-container {
+	padding: 0 3%;
+	border-right: 1px solid #a2a2a2;
+}
+
+#light .sort-movies-container {
+	padding: 0 3%;
+	background-color: #373737;
+	border-right: 1px solid #ffaa00;
+	color: #a2a2a2;
+}
+
+.sort-menu {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.sort-menu-p {
+	margin: 0;
+	padding-top: 5%;
+	width: 150px;
+}
+
+.sort-menu-list {
+	list-style: none;
+	width: 150px;
+	padding: 0 2%;
+	text-align: left;
+}
+
+.sort-menu-list li {
+	padding-bottom: 5%;
 }

@@ -10,11 +10,11 @@ export const useFetchMovies = () => {
 			);
 			const data = await response.json();
 			setMovies(data.results);
-			console.log(data.results);
 		} catch (err) {
 			setMovies([]);
 			console.error(err);
 		}
+		window.scrollTo(0, 0);
 	}, []);
 
 	useEffect(() => {
