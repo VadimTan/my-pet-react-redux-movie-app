@@ -379,14 +379,15 @@ button:hover {
 	position: absolute;
 	top: 80px;
 	left: 160px;
-	border-radius: 50%;
-	width: 40px;
-	height: 20px;
+	border-radius: 150px;
+	padding-top: 5px;
+	width: 33px;
+	height: 27px;
 	justify-content: center;
 	align-items: center;
 	background-color: #1a191f;
 	color: #ffef3a;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 .modal-movie-release {

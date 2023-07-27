@@ -56,7 +56,7 @@ const NavBar = () => {
 								onChange={handleChange}
 							/>
 							<button
-								className="button-sumbit"
+								className="button-submit"
 								type="submit">
 								Find
 							</button>

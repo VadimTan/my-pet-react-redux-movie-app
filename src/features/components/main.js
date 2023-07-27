@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useFetchMovies } from '../hooks/useFetchMovies';
 import { Modal } from './modal';
 import Sort from './sort';
+import { Fade } from 'react-awesome-reveal';
 
 const Main = (props) => {
 	const { movies, refetch } = useFetchMovies();
@@ -79,7 +80,8 @@ const Main = (props) => {
 										alt=""
 										onClick={() => handleMovieClick(movie)}
 									/>
-									<h3>{movie.title}</h3>
+
+									<h3 className="movie-title-h3">{movie.title}</h3>
 								</div>
 						  ))
 						: sortedByRating.map((movie) => (
@@ -89,7 +91,7 @@ const Main = (props) => {
 										alt=""
 										onClick={() => handleMovieClick(movie)}
 									/>
-									<h3>{movie.title}</h3>
+									<h3 className="movie-title-h3">{movie.title}</h3>
 								</div>
 						  ))}
 				</div>
