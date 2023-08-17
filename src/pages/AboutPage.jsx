@@ -4,7 +4,7 @@ import Footer from '../features/components/footer';
 import '../App.css';
 import { Fade } from 'react-awesome-reveal';
 
-export const AboutPage = () => {
+const AboutPage = () => {
 	return (
 		<>
 			<NavBar />
@@ -54,3 +54,5 @@ export const AboutPage = () => {
 		</>
 	);
 };
+
+export default AboutPage;

@@ -2,27 +2,10 @@ import React, { createContext, useState, lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import ReactSwitch from 'react-switch';
-
-const HomePage = lazy(() =>
-	import('./pages/HomePage').then((module) => {
-		return { default: module.HomePage };
-	})
-);
-const AboutPage = lazy(() =>
-	import('../src/pages/AboutPage').then((module) => {
-		return { default: module.AboutPage };
-	})
-);
-const MoviesPage = lazy(() =>
-	import('../src/pages/MoviesPage').then((module) => {
-		return { default: module.MoviesPage };
-	})
-);
-const NewPage = lazy(() =>
-	import('../src/pages/NewPage').then((module) => {
-		return { default: module.NewPage };
-	})
-);
+const HomePage = lazy(() => import('./pages/HomePage'));
+const AboutPage = lazy(() => import('../src/pages/AboutPage'));
+const MoviesPage = lazy(() => import('../src/pages/MoviesPage'));
+const NewPage = lazy(() => import('../src/pages/NewPage'));
 export const ThemeContext = createContext(null);
 
 function App() {

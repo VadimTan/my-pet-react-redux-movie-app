@@ -6,7 +6,7 @@ import '../App.css';
 import { Slide } from 'react-awesome-reveal';
 // import Main from './features/components/main';
 
-export const HomePage = () => {
+const HomePage = () => {
 	return (
 		<>
 			<NavBar />
@@ -37,3 +37,5 @@ export const HomePage = () => {
 		</>
 	);
 };
+
+export default HomePage;

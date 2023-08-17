@@ -2,7 +2,7 @@ import Footer from '../features/components/footer';
 import NavBar from '../features/components/navbar';
 import { NewMovies } from '../features/components/newMovies';
 
-export const NewPage = () => {
+const NewPage = () => {
 	return (
 		<>
 			<NavBar />
@@ -11,3 +11,5 @@ export const NewPage = () => {
 		</>
 	);
 };
+
+export default NewPage;

@@ -4,7 +4,7 @@ import Footer from '../features/components/footer';
 import Main from '../features/components/main';
 import '../App.css';
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
 	return (
 		<>
 			<NavBar />
@@ -13,3 +13,5 @@ export const MoviesPage = () => {
 		</>
 	);
 };
+
+export default MoviesPage;
