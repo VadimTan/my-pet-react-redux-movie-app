@@ -31,7 +31,7 @@ function App() {
 					className="App"
 					id={theme}>
 					<div className="switcher-light-dark-mode">
-						<label>{theme === 'light' ? 'Light Mode' : 'Dark Mode'}</label>
+						<label>{theme === 'light' ? 'Light' : 'Dark'}</label>
 						<ReactSwitch
 							className="switch"
 							onChange={toggleTheme}

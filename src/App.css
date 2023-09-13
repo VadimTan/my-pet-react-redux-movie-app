@@ -119,14 +119,6 @@ div {
 	color: #ffffff;
 }
 
-#light .switcher-light-dark-mode {
-	border-bottom: 1px solid #000000;
-}
-
-#dark .switcher-light-dark-mode {
-	border-bottom: 1px solid #ffffff;
-}
-
 #dark .d1 button {
 	background: #ffffff;
 	color: #000000;
@@ -146,6 +138,7 @@ div {
 	display: flex;
 	padding: 10px;
 	margin: 5px;
+	width: 15%;
 }
 
 .switch {
