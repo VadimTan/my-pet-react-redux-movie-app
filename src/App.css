@@ -294,14 +294,14 @@ button:hover {
 	right: 155px;
 }
 
-.movies-menu img {
+.movie-image {
 	cursor: pointer;
 	box-shadow: 0 2px 4px #5a5a5a;
 	height: 300px;
 	width: 300px;
 }
 
-.movies-menu img:hover {
+.movie-image:hover {
 	opacity: 0.7;
 	transition: opacity 0.3s ease-in-out;
 }
@@ -312,9 +312,6 @@ button:hover {
 
 .modal__overlay {
 	background-color: rgba(0, 0, 0, 0.5);
-	position: fixed;
-	top: 0;
-	left: 0;
 	width: 100%;
 	height: 100%;
 	overflow: auto;
@@ -322,10 +319,8 @@ button:hover {
 
 .modal {
 	margin-top: 20px;
-	max-width: 600px;
-	width: 100%;
 	position: fixed;
-	top: 40%;
+	top: 47%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	display: flex;
@@ -341,10 +336,11 @@ button:hover {
 }
 
 .modal-movie-image {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
+	position: relative;
+	cursor: pointer;
+	box-shadow: 0 2px 4px #5a5a5a;
+	height: 300px;
+	width: 300px;
 }
 
 .modal-movie-h3 {
@@ -368,12 +364,18 @@ button:hover {
 	background-color: #9e9c9c;
 }
 
+.modal-movie {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .modal-movie-average {
 	position: absolute;
-	top: 80px;
-	left: 160px;
 	border-radius: 150px;
 	padding-top: 5px;
+	top: 65px;
+	left: 250px;
 	width: 33px;
 	height: 27px;
 	justify-content: center;

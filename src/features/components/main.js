@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { useFetchMovies } from '../hooks/useFetchMovies';
 import { Modal } from './modal';
 import Sort from './sort';
-import { Fade } from 'react-awesome-reveal';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { storeProperties } from '../../redux/search.slice';
 
-const Main = (props) => {
+const Main = () => {
+	const dispatch = useDispatch();
+	const { filteredMovies } = useSelector((state) => state.search);
 	const { movies, refetch } = useFetchMovies();
 	const [modalActive, setModalActive] = useState(false);
 	const [selectedMovie, setSelectedMovie] = useState(null);
@@ -18,13 +22,17 @@ const Main = (props) => {
 		},
 	];
 
+	useEffect(() => {
+		dispatch(storeProperties(movies));
+	}, [dispatch, movies]);
+
 	const sortedByRating = [...movies].sort(
 		(mov1, mov2) => mov2.vote_average - mov1.vote_average
 	);
 
 	const handleMovieClick = (movie) => {
-		setSelectedMovie(movie); // set the selected movie data in state
-		setModalActive(true); // show the modal
+		setSelectedMovie(movie);
+		setModalActive(true);
 	};
 
 	const sortByFame = () => {
@@ -55,14 +63,14 @@ const Main = (props) => {
 										src={`https://image.tmdb.org/t/p/original${selectedMovie.backdrop_path}`}
 										alt=""
 									/>
+									<div className="modal-movie-average">
+										{selectedMovie.vote_average.toFixed(2)}
+									</div>
 									<h3 className="modal-movie-h3">{selectedMovie.title}</h3>
 									<p className="modal-movie-release">
 										Release Date: {selectedMovie.release_date}
 									</p>
 									<p className="modal-movie-info">{selectedMovie.overview}</p>
-									<div className="modal-movie-average">
-										{selectedMovie.vote_average}
-									</div>
 									<button
 										onClick={() => setModalActive(false)}
 										className="modal-button-close">
@@ -72,10 +80,11 @@ const Main = (props) => {
 							</>
 						)}
 					</Modal>
-					{checkedRating === false
-						? movies.map((movie) => (
+					{checkedRating === false && filteredMovies.length > 0
+						? filteredMovies.map((movie) => (
 								<div key={movie.id}>
 									<img
+										className="movie-image"
 										src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
 										alt=""
 										onClick={() => handleMovieClick(movie)}
@@ -87,6 +96,7 @@ const Main = (props) => {
 						: sortedByRating.map((movie) => (
 								<div key={movie.id}>
 									<img
+										className="movie-image"
 										src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
 										alt=""
 										onClick={() => handleMovieClick(movie)}
@@ -101,7 +111,3 @@ const Main = (props) => {
 };
 
 export default Main;
-
-// const filteredMovieList = movies.filter((movie) => {
-// 	return movie.title.toLowerCase().includes(searchTerm.toLowerCase());
-// });

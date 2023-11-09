@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { searchByMovies } from '../counter/SearcherSlice';
 import { Link } from 'react-router-dom';
+import { searchByName } from '../../redux/search.slice';
 
 const NavBar = () => {
 	const dispatch = useDispatch();
-	const [searchTerm, setSearchTerm] = useState('');
 
 	const handleChange = (e) => {
-		setSearchTerm(e.target.value);
+		dispatch(searchByName(e.target.value));
 	};
-
-	useEffect(() => {
-		dispatch(searchByMovies(searchTerm));
-	}, [searchTerm, dispatch]);
 
 	return (
 		<div className="main-div">
@@ -52,14 +47,8 @@ const NavBar = () => {
 							<input
 								type="text"
 								placeholder="Find here..."
-								value={searchTerm}
-								onChange={handleChange}
+								onChange={(e) => handleChange(e)}
 							/>
-							<button
-								className="button-submit"
-								type="submit">
-								Find
-							</button>
 						</form>
 					</div>
 				</nav>
